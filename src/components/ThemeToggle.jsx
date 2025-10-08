@@ -12,7 +12,7 @@ export const ThemeToggle = () => {
       document.documentElement.classList.add("dark");
     } else {
       localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
+      setIsDarkMode(true);
     }
   }, []);
 
@@ -20,7 +20,7 @@ export const ThemeToggle = () => {
     if (isDarkMode) {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
+      setIsDarkMode(true);
     } else {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
