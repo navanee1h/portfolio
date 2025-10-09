@@ -1,0 +1,66 @@
+// data/projectsData.js
+
+export const projects = [
+  {
+    id: 1,
+    title: "Multi-Module Banking Dashboard - Canara Bank",
+    description: [
+      "Built a comprehensive multi-module dashboard for Canara Bank integrating critical banking datasets.",
+      "Centralized data sources such as SARFAESI, NPA, NF, service matters, legal case data, and staff-related information.",
+      "Designed the dashboard as a single source of truth for management and operational teams.",
+      "Enhanced case and compliance tracking with dedicated modules for SARFAESI and legal matters to ensure regulatory adherence.",
+      "Delivered a scalable and accurate platform with user-friendly visualizations for both technical and non-technical stakeholders.",
+      "Strengthened transparency and operational efficiency, empowering senior management with actionable insights.",
+    ],
+    image: "/public/projects/canara.webp",
+    tags: ["React", "Redux", "TailwindCSS", "Node.js", "Express", "Mssql"],
+    // demoUrl: "#",
+    // githubUrl: "#",
+  },
+  {
+    id: 2,
+    title: "EOFFICE (ARTCO Ltd.)",
+    description: [
+      "A workflow management system for cooperative banks to streamline and automate the approval process for various banking operations.",
+      "Developed a system to automate and streamline the approval process for cooperative banks.",
+      "Implemented workflows for key roles including President, Secretary, Manager, Section Officer, Clerk, and Director.",
+      "Reduced approval times and increased operational efficiency through automated processes.",
+      "Ensured adherence to compliance standards and improved documentation accuracy.",
+    ],
+    image: "/public/projects/eoffice.webp",
+    tags: ["React", "Redux", "TailwindCSS", "Node.js", "Express", "Mssql"],
+    // demoUrl: "#",
+    // githubUrl: "#",
+  },
+  {
+    id: 3,
+    title: "KSSFCL (Karnataka State Souharda Federal Cooperative LTD)",
+    description: [
+      "An Overall Management System for KSSFCL, a cooperative society in Karnataka, India, with multiple modules to handle various operations.",
+      "Court Module: Manages court-related data, e-case filing, approval processes, and petition filings.",
+      "Training Module: Handles trainee registrations, exam details, class schedules, and related information.",
+      "Magazine Module: Oversees printing operations, book and author details, and subscription management.",
+      "Secretariat Module: Facilitates election processes and manages election results.",
+      "Admin Module: Centralized management of all other modules.",
+    ],
+    image: "/public/projects/souhardha.webp",
+    tags: ["React", "Redux", "TailwindCSS", "Node.js", "Express", "Mssql"],
+    // demoUrl: "#",
+    // githubUrl: "#",
+  },
+  {
+    id: 3,
+    title: "SMA (Karnataka Vikas Grameena Bank)",
+    description: [
+      "An internal application for Karnataka Vikas Grameena Bank (KVGB) to manage various banking operations, including customer management, loan processing, and document handling.",
+      "Implemented a secure and efficient three-tier login system, enhancing user authentication and access control.",
+      "Improved accuracy and reduced documentation time through automation.",
+      "Ensured timely communication and task tracking, enabling customers to explore and access various bank facilities.",
+      "Enhanced the efficiency of loan processing and oversight, ensuring compliance and improving turnaround times for Karnataka Vikas Grameena Bank (KVGB).",
+    ],
+    image: "/public/projects/sma.webp",
+    tags: ["React", "Redux", "TailwindCSS", "Node.js", "Express", "Mssql"],
+    // demoUrl: "#",
+    // githubUrl: "#",
+  },
+];

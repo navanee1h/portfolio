@@ -1,41 +1,19 @@
 import { useState, useEffect } from "react";
-import { ArrowRight, ExternalLink, Github, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Github,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { projects } from "./data/projectData";
 
-const cn = (...classes) => classes.filter(Boolean).join(' ');
-
-const projects = [
-  {
-    id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 2,
-    title: "Orbit Analytics Dashboard",
-    description: "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-    tags: ["TypeScript", "D3.js", "Next.js"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 3,
-    title: "E-commerce Platform",
-    description: "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-];
+const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 export const ProjectsSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [previewImg, setPreviewImg] = useState(null);
 
   // Check if screen is mobile
   useEffect(() => {
@@ -44,37 +22,34 @@ export const ProjectsSection = () => {
     };
 
     checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => window.removeEventListener('resize', checkIsMobile);
+    window.addEventListener("resize", checkIsMobile);
+
+    return () => window.removeEventListener("resize", checkIsMobile);
   }, []);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => 
-      prev === projects.length - 1 ? 0 : prev + 1
-    );
+    setCurrentSlide((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => 
-      prev === 0 ? projects.length - 1 : prev - 1
-    );
+    setCurrentSlide((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
   const ProjectCard = ({ project }) => (
     <div className="group bg-gray-800 rounded-lg overflow-hidden shadow-lg border border-gray-700 min-w-full md:min-w-0">
-      <div className="h-48 overflow-hidden">
+      <div className="h-48 overflow-hidden cursor-pointer">
         <img
           src={project.image}
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          onClick={() => setPreviewImg(project.image)}
         />
       </div>
 
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag, index) => (
-            <span 
+            <span
               key={index}
               className="px-2 py-1 text-xs font-medium border border-gray-600 rounded-full bg-gray-700 text-gray-200"
             >
@@ -83,11 +58,22 @@ export const ProjectsSection = () => {
           ))}
         </div>
 
-        <h3 className="text-xl font-semibold mb-1 text-white">{project.title}</h3>
-        <p className="text-gray-300 text-sm mb-4">
-          {project.description}
+        <h3 className="text-xl font-semibold mb-1 text-white">
+          {project.title}
+        </h3>
+        <p className="text-gray-300 text-sm mb-4 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] h-40 lg:h-40 ">
+          {Array.isArray(project.description) ? (
+            <ul className="list-disc pl-5 space-y-2">
+              {project.description.map((point, idx) => (
+                <li key={idx}>{point}</li>
+              ))}
+            </ul>
+          ) : (
+            project.description
+          )}
         </p>
-        <div className="flex justify-between items-center">
+
+        {/* <div className="flex justify-between items-center">
           <div className="flex space-x-3">
             <a
               href={project.demoUrl}
@@ -106,7 +92,7 @@ export const ProjectsSection = () => {
               <Github size={20} />
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -115,7 +101,7 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-white">
-          Featured <span className="text-violet-400">Projects</span>
+          <span className="text-violet-400">Projects</span>
         </h2>
 
         <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
@@ -127,7 +113,7 @@ export const ProjectsSection = () => {
           // Mobile Carousel
           <div className="relative mb-12">
             <div className="overflow-hidden">
-              <div 
+              <div
                 className="flex transition-transform duration-300 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
@@ -186,7 +172,7 @@ export const ProjectsSection = () => {
           </div>
         )}
 
-        <div className="text-center">
+        {/* <div className="text-center">
           <a
             className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
             target="_blank"
@@ -195,8 +181,21 @@ export const ProjectsSection = () => {
           >
             Check My Github <ArrowRight size={16} />
           </a>
-        </div>
+        </div> */}
       </div>
+      {/* Image Preview Modal */}
+      {previewImg && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50"
+          onClick={() => setPreviewImg(null)}
+        >
+          <img
+            src={previewImg}
+            alt="Preview"
+            className="max-h-[90%] max-w-[90%] rounded-lg shadow-lg"
+          />
+        </div>
+      )}
     </section>
   );
 };
