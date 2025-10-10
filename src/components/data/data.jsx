@@ -1,4 +1,4 @@
-// data/projectsData.js
+// data/projectsData
 
 export const projects = [
   {
@@ -58,9 +58,42 @@ export const projects = [
       "Ensured timely communication and task tracking, enabling customers to explore and access various bank facilities.",
       "Enhanced the efficiency of loan processing and oversight, ensuring compliance and improving turnaround times for Karnataka Vikas Grameena Bank (KVGB).",
     ],
-    image: "/projects/sma.webp",
+    image: "projects/sma.webp",
     tags: ["React", "Redux", "TailwindCSS", "Node.js", "Express", "Mssql"],
     // demoUrl: "#",
     // githubUrl: "#",
+  },
+];
+
+// data/experienceData
+export const experiences = [
+  {
+    id: 2,
+    role: "Web Developer Intern",
+    company: "Soften Technologies",
+    period: "Jun 2022 - Dec 2022",
+    description: `Interned at Softern, where I learned new technologies independently, interviewed and evaluated students, and delivered valuable feedback — strengthening both technical and communication skills.`,
+    tags: ["HTML", "CSS", "JavaScript"],
+    logo: "/images/tech-logo.png",
+  },
+  {
+    id: 1,
+    role: "Software Developer",
+    company: "Safe Software and Integrated Solutions (Fintech)",
+    period: "Nov 2022 - Present",
+    description: `Skilled React.js Developer experienced in building dynamic and user-friendly web applications. Proficient in front-end development, collaborating with teams to ideate and implement impactful solutions in the fintech sector. Strong understanding of component architecture, state management, and API integration. Dedicated to delivering high-quality, efficient, and well-tested software.`,
+    tags: [
+      "React.js",
+      "JavaScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "Mssql",
+      "REST API",
+      "Git",
+      "Responsive Design",
+      "Frontend Development",
+    ],
+    logo: "/images/canara-logo.png",
   },
 ];

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
-  // { name: "Skills", href: "#skills" },
+  { name: "Experience", href: "#experiences" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
@@ -43,7 +43,7 @@ export const Navbar = () => {
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
             <a
-              key={key} 
+              key={key}
               href={item.href}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >

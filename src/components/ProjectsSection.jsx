@@ -1,12 +1,9 @@
 import { useState, useEffect } from "react";
 import {
-  ArrowRight,
-  ExternalLink,
-  Github,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import { projects } from "./data/projectData";
+import { projects } from "./data/data";
 
 const cn = (...classes) => classes.filter(Boolean).join(" ");
 
@@ -72,27 +69,6 @@ export const ProjectsSection = () => {
             project.description
           )}
         </p>
-
-        {/* <div className="flex justify-between items-center">
-          <div className="flex space-x-3">
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
-            >
-              <ExternalLink size={20} />
-            </a>
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
-            >
-              <Github size={20} />
-            </a>
-          </div>
-        </div> */}
       </div>
     </div>
   );
@@ -171,17 +147,6 @@ export const ProjectsSection = () => {
             ))}
           </div>
         )}
-
-        {/* <div className="text-center">
-          <a
-            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/navanee1h"
-          >
-            Check My Github <ArrowRight size={16} />
-          </a>
-        </div> */}
       </div>
       {/* Image Preview Modal */}
       {previewImg && (
